@@ -6,7 +6,7 @@ import (
 )
 
 type Set[T comparable] struct {
-	data map[T]struct{}
+	Data map[T]struct{}
 }
 
 // New constructs and returns an empty set.
@@ -18,26 +18,26 @@ func New[T comparable]() Set[T] {
 // Add adds a new elements to the set.
 // time-complexity: O(1)
 func (s *Set[T]) Add(val T) {
-	s.data[val] = struct{}{}
+	s.Data[val] = struct{}{}
 }
 
 // Has returns true if the set has the given val.
 // time-complexity: O(1)
 func (s *Set[T]) Has(val T) bool {
-	_, ok := s.data[val]
+	_, ok := s.Data[val]
 	return ok
 }
 
 // Delete removes the val from the set.
 // time-complexity: O(1)
 func (s *Set[T]) Delete(val T) {
-	delete(s.data, val)
+	delete(s.Data, val)
 }
 
 // Size returns the number of the elements in the set.
 // time-complexity: O(1)
 func (s *Set[T]) Size() int {
-	return len(s.data)
+	return len(s.Data)
 }
 
 // IsEmpty returns true if the set doesn't contain any elements.
@@ -53,7 +53,7 @@ func (s *Set[T]) String() string {
 
 	b.WriteString("{ ")
 
-	for k := range s.data {
+	for k := range s.Data {
 		b.WriteString(fmt.Sprint(k))
 		b.WriteString(" ")
 	}
